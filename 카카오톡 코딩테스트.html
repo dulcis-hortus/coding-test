@@ -1,0 +1,67 @@
+// 카카오톡 코딩테스트
+<!DOCTYPE HTML>
+<html>
+  <body>
+  <script>
+    function userState(inarray) {
+      var Array = [];
+      for (var i = 0; i < inarray.length; i++) {
+        // 한 명령을 3부분으로 쪼개어 각자 배열에 담음
+        // ex) [['Enter', 'uid1234', 'Muzi'], ['Enter', 'uid3456', 'Prodo'],...]
+        Array.push(inarray[i].split(' ')); // Array에 위와 같이 정렬됨
+      }
+        // 배열을 받아서 배열을 내보내는 함수?
+        // change가 관건
+        //
+        // 보다 쉬운 핸들링을 위한 객체 생성
+        // var Obj = {
+          //   id1 : [a, b, ...];
+          //   id2 : [x, b, ...];
+          // }
+      console.log(Array);
+      var match = {};
+
+      function makeObj(userid, name) {
+        if (!match[userid]) {
+          match[userid] = [];
+          match[userid].push(name);
+        } else {
+          match[userid].push(name);
+        }
+        return match;
+      }
+
+      for (var i = 0; i < Array.length; i++) {
+        var unit = Array[i];
+        var userid = unit[1];
+        var name = unit[2];
+        var match = makeObj(userid, name);
+      }
+
+      console.log(match);
+      // // match 객체의 완성
+      //
+      var result = [];
+      for (var i = 0; i < Array.length; i++) {
+        var unit = Array[i];
+        var namearr = match[unit[1]];
+        let name = namearr[namearr.length - 1];
+        let end = ""
+        if (unit[0] === 'Enter') {
+          end = "님이 들어왔습니다."
+        } else if (unit[0] === 'Leave') {
+          end = "님이 나갔습니다."
+        } else {
+          continue;
+        }
+        result.push(name + end);
+      }
+
+      // return result;
+      console.log(result);
+    }
+
+  userState(["Enter uid1234 Muzi", "Enter uid4567 Prodo", "Leave uid1234", "Enter uid1234 Prodo", "Change uid4567 Ryan"]);
+  </script>
+  </body>
+</html>

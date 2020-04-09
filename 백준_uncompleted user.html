@@ -1,0 +1,31 @@
+<html>
+<body>
+<script>
+
+function solution(participant, completion) {
+    // 각 배열을 sort()로 정렬
+    // 이후 i값으로 비교
+
+    const part = participant.sort();
+    const com = completion.sort();
+
+    for (var i = 0; i < participant.length; i++) {
+      // !=로 바로 부정문을 조건으로 쓰는 버릇을 들이자
+      if (part[i] !== com[i]) {
+        return part[i];
+      }
+        // if (part[i] === com[i]) {
+        //     continue;
+        // } else {
+        //     return part[i];
+        // }
+    }
+}
+const a = ["marina", "josipa", "nikola", "vinko", "filipa"];
+const b = ["josipa", "filipa", "marina", "nikola"];
+
+console.log(solution(a, b));
+
+</script>
+</body>
+</html>

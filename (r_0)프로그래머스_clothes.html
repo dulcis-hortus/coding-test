@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <script>
+    function solution(clothes) {
+    // 일단 종류별로 정리하자
+    // 전체 아이템 개수 + 각 파트 아이템들의 곱
+    var closet = {};
+    for (let i = 0; i < clothes.length; i++) {
+            let unit = clothes[i];
+            let kind = unit[1];
+            let cloth = unit[0];
+            if (! closet[kind]) {
+                closet[kind] = [];
+            }
+            closet[kind].push(cloth);
+        }
+    // 내장함수 이용을 위해 배열을 만들자
+    const kinds = Object.keys(closet);
+    var assist = [];
+    for (let j = 0; j < kinds.length; j++) {
+        let now = closet[kinds[j]];
+        assist.push(now.length + 1);
+    }
+
+    // assist에 종류별 옷들 개수들이 기록됨
+    // 내장함수 reduce 사용
+    var mul = assist.reduce((a, b) => a * b, 1);
+    if (assist.length === 1) {
+      mul = assist[0];
+    }
+    var answer = mul - 1;
+
+    // console.log(add);
+    // console.log(mul);
+    return answer;
+  }
+  //solution(	[["crow_mask", "face"], ["blue_sunglasses", "face"], ["smoky_makeup", "face"]]);
+  solution(	[["yellow_hat", "headgear"], ["blue_sunglasses", "eyewear"], ["green_turban", "headgear"]]);
+  </script>
+  </head>
+  <body>
+  </body>
+</html>
