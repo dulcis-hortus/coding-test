@@ -16,20 +16,16 @@
             closet[kind].push(cloth);
         }
     // 내장함수 이용을 위해 배열을 만들자
-    const kinds = Object.keys(closet);
-    var assist = [];
-    for (let j = 0; j < kinds.length; j++) {
-        let now = closet[kinds[j]];
-        assist.push(now.length + 1);
-    }
-
+//     const kinds = Object.keys(closet);
+//     var assist = [];
+//     for (let j = 0; j < kinds.length; j++) {
+//         let now = closet[kinds[j]];
+//         assist.push(now.length + 1);
+//     }
+    var assist = Object.values(closet);
     // assist에 종류별 옷들 개수들이 기록됨
     // 내장함수 reduce 사용
-    var mul = assist.reduce((a, b) => a * b, 1);
-    if (assist.length === 1) {
-      mul = assist[0];
-    }
-    var answer = mul - 1;
+    var answer = assist.reduce((a, b) => a * (b+1), 1) - 1;
 
     // console.log(add);
     // console.log(mul);
