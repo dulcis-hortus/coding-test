@@ -1,0 +1,19 @@
+// 프로그래머스; level 1; 이상한 문자 만들기
+
+function solution(s) {
+// 정규식 사용(/ /g)
+// let sent = s.replace(/ /g,'*');  
+    let arr = s.split(' ');
+    let rearr = arr.map(function (cur) {
+        let word = '';
+        for (let i = 0; i<cur.length; i++) {
+            if (i%2 === 0) {
+                word += cur[i].toUpperCase();
+            } 
+            else {
+                word += cur[i].toLowerCase();
+            }
+        }
+        return word;
+    })
+    return rearr.join(' '); 
