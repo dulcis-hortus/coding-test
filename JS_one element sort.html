@@ -1,0 +1,53 @@
+<!-- // 내가 하고 싶은 것
+// 배열에서 한 요소를 빼고, 남은 배열이 조건에 맞는지 확인한다.
+// 조건에 맞는 게 하나라도 있으면 성공(var jackpot = jackpot + 1)
+// 더 큰 count가 하나 더 필요해 -->
+<html>
+<body>
+<script>
+  function test(sequence) {
+    for (var i = 0; i < sequence.length; i++) {
+        var seq = sequence.filter(function(element, index){
+            return index !== i;
+        });
+//
+//         let seq = sequence.slice(0);
+// seq.splice(i, 1);
+// 
+
+        var Arr = [];
+        for (var j = 0; j <= (seq.length - 2); j++) {
+          if (seq[j] < seq[j+1]) {
+            Arr.push(1);
+          }
+          else {
+            break;
+          }
+        };
+
+        if (Arr.length === sequence.length -2) {
+            return true;
+        }
+    };
+
+    return false;
+}
+// [1, 1, 0]
+    // 하나라도 0이 있다면 ture
+    // every() 함수를 쓸 것
+//     if (count === 0) {
+//       var jackpot = jackpot + 1;
+//     }
+//     else {
+//       continue;
+//     }
+//     }
+//   }
+//
+//   console.log(jackpot != 0);
+// }
+
+test([1, 2, 1]);
+</script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script>
+// 다 만들어놓고 보니, 이건 거울수에 대한 함수이지, palindrome에 대한 함수가 아니었다는 황당한 결론
+// 하늘은 뭐다? 삽질하는 자를 삽으로 팬다.
+// 문제 정의부터 확실하게 하고 풀이로 넘어갈 것!!
+function checkMirror(inputString) {
+    function reverse(part2) {
+        var sample = part2.split("").reverse().join("");
+        return sample
+    }
+
+    // 전체 철자의 갯수를 기준으로 나눈다.
+    var number = inputString.length;
+
+    if (number === 1) {
+        return true
+    }
+    // 총 철자의 갯수가 홀수일 경우
+    else if (number % 2 === 1) {
+        var middle_index = Math.floor(number / 2);
+        var input = inputString.replace(inputString[middle_index], '');
+        var for_half = input.length / 2;
+
+        var part1 = input.slice(0, for_half);
+        var part2 = input.slice(for_half);
+
+        var repart2 = reverse(part2);
+        // part2.split("").reverse().join("");
+
+        return (part1 === repart2)
+    }
+
+    else if (number % 2 === 0) {
+      var for_half = inputString.length / 2;
+
+      var part1 = inputString.slice(0, for_half);
+      var part2 = inputString.slice(for_half);
+
+      var repart2 = reverse(part2);
+      // part2.split("").reverse().join("");
+
+      return (part1 === repart2)
+    }
+}
+
+var text = "abcba";
+var text2 = "abba";
+var text3 = "zzzazzazz";
+
+console.log(checkPalindrome(text));
+console.log(checkPalindrome(text2));
+console.log(checkPalindrome(text3));
+
+</script>
+</body>
+</html>

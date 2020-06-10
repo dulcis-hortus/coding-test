@@ -1,0 +1,54 @@
+<html>
+<body>
+<script>
+function test(sequence) {
+  for (let i = 0; i < sequence.length; i++) {
+      var seq = Array.from(sequence);
+      seq.splice(i, 1);
+      var arr = Array.from(seq);
+      var arr = seq.sort(function (a,b){ return a-b; });
+      // every 함수로 일일이 하나씩 다 비교해봐야 한다?
+      function compare(seq[i]) {
+
+        return
+      }
+  };
+  return false;
+}
+
+
+
+
+
+
+
+/// 여기에서부터 -------------------------------------------------------
+      var num = seq.length - 2;
+      var count = 0;
+      for (var j = 0; j <= num; j++) {
+          if (seq[j] < seq[j+1]) {
+              count++;
+              continue;
+          }
+          else {
+              break;
+          }
+      };
+
+      if (count === num + 1) {
+          return true;
+      }
+
+/// 여기까지를 내장함수로 사용해야 한다.----------------------------------
+  };
+  return false;
+
+  retrun
+}
+
+const sequence = [1, 3, 2];
+console.log(test(sequence));
+
+</script>
+</body>
+</html>

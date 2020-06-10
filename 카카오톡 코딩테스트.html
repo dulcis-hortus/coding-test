@@ -4,19 +4,6 @@
   <body>
   <script>
     function userState(inarray) {
-      var Array = inarray.reduce(function (arr, curr) {
-        return arr.push(curr.split(' '))}, []);
-      // 이거 디버깅으로 봐야해ㅠㅁㅠ...
-      // 콘솔에 arr.push라는 함수가 없다고 나온다
-      var match = Array.reduce(function (obj, cur) {
-        const key = cur[1];
-        obj[key] ? obj[key].push(cur[2]) : obj[key] = [cur[2]]; 
-        return obj;}, {});
-      
-      
-      
-      
-      
       var Array = [];
       for (var i = 0; i < inarray.length; i++) {
         // 한 명령을 3부분으로 쪼개어 각자 배열에 담음

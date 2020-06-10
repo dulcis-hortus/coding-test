@@ -1,0 +1,17 @@
+<!-- // 신이시여... 제게 문제를 받으면 내장함수를 보는 습관을 주소서
+// every() 함수가 쓸 만해 보이니 이걸 써보겠습니다 -->
+
+function test(sequence) {
+  var make_arr = function(seq) {
+    var arr = [];
+    for (var i = 0; i < seq.length - 1; i++) {
+      var element = seq[i+1] - seq[i];
+      arr.push(element);
+    }
+    return arr
+  }
+
+  const checkArr = (currentValue) => currentValue > 0;
+
+  sequence.every(all_test);
+}
