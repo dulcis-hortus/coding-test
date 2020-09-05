@@ -1,0 +1,15 @@
+# 백준 알고리즘 - 블랙잭
+
+n, m = list(map(int, input().split(' ')))  # 파이썬 map 함수 list 문법
+data = list(map(int, input().split(' ')))
+
+length = len(data)
+result = 0
+
+for i in range(0, length):
+    for j in range(i+1, length):
+        for k in range(j+1, length):
+            sum_value = data[i] + data[j] + data[k]
+            if sum_value <= m:
+                result = max(result, sum_value)  # 두 숫자 중 큰 수로 result를 대체함
+print(result)
